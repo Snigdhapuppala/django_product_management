@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3 align="center"> Search Results</h3>
+<div class="container">
+    <div class="row justify-content-center m-4">
+            {% if products %}
+                {% for product in products %}
+            <div class="col-md-4">
+                 <div class="card m-2" style="width: 18rem;">
+                  <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <h4 class="card-text">{{ product.price }}</h4>
+                  <p class="card-text">{{ product.description }}</p>
+                  <p class="card-text mt-1">{{ product.created_at }}</p>
+                  <a href="{% url 'productDetail' product.pk %}" class="btn btn-primary">More Details</a>
+                  </div>
+                  </div>
+            </div>
+                  {% endfor %}
+                {% else %}
+                <p>sorry product is not available..</p>
+            {% endif %}
+        </div>
+
+</div>
+
+{% endblock %}

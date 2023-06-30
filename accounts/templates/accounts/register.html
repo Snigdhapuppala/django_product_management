@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h3 align="center">User Register</h3>
+        <div class="row justify-content-center">
+           <div class="card-body">
+            <form action="{% url 'register' %}" method="POST">
+                   {% csrf_token %}
+                <div class="form-group">
+                    <label for="Username">User Name</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" name="password2" class="form-control" required>
+                </div>
+                <input type="submit" value="Register" class="btn btn-secondary btn block">
+            </form>
+           </div>
+        </div>
+    </div>
+
+{% endblock %}
